@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Get the current time
+var currentTime = new Date();
+
+// Prompt the user to enter the alarm time
+var alarmTime = prompt("Enter the time for the alarm in HH:MM format (24-hour clock):");
+
+console.log(alarmTime)
+// Convert the alarm time to a Date object
+var alarm = new Date();
+console.log(alarm)
+
+alarm.setHours(alarmTime.split(":")[0]);
+console.log(alarm)
+alarm.setMinutes(alarmTime.split(":")[1]);
+console.log(alarm)
+alarm.setSeconds(0);
+console.log(alarm)
+
+// Calculate the time remaining until the alarm goes off
+var timeRemaining = alarm - currentTime;
+console.log(timeRemaining)
+
+// Check if the alarm time is in the future
+if (timeRemaining > 0) {
+  setTimeout(function() {
+    // This code will run when the alarm goes off
+    alert("Alarm! Wake up!");
+  }, timeRemaining);
+} else {
+  alert("Invalid alarm time. Please enter a future time.");
+}
+
+    </script>
+</body>
+</html>
